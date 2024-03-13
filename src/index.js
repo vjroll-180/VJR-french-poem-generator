@@ -1,6 +1,4 @@
 function displayPoem(response) {
-  console.log("Generated poem!");
-
   new Typewriter("#poem", {
     strings: response.data.answer,
     autoStart: true,
@@ -11,8 +9,6 @@ function displayPoem(response) {
 
 function generatePoem(event) {
   event.preventDefault();
-
-  console.log("Generating...");
 
   let poemElement = document.querySelector("#poem");
   poemElement.classList.remove("hidden");
@@ -30,15 +26,6 @@ function generatePoem(event) {
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
   axios.get(apiUrl).then(displayPoem);
-
-  //let poemElement = document.querySelector("#poem");
-  //poemElement.innerHTML = "La tombe dit à la rose";
-  //use type writer instead
-
-  //create second function to display poem result
-  //move typewriter into that and add axios + variables here instead
-
-  //hide the blank box and remove the hidden class on generation of poem
 }
 
 let formElement = document.querySelector("#form");
