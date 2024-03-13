@@ -5,13 +5,23 @@ function displayPoem(response) {
     strings: response.data.answer,
     autoStart: true,
     cursor: "",
+    pauseFor: 1000,
   });
 }
 
 function generatePoem(event) {
   event.preventDefault();
 
-  console.log("Generating....");
+  console.log("Generating...");
+
+  let poemElement = document.querySelector("#poem");
+  poemElement.classList.remove("hidden");
+
+  new Typewriter("#poem", {
+    strings: "Generating...",
+    autoStart: true,
+    cursor: "",
+  });
 
   let apiKey = "13da71b4bebee18bac0t70ddd06fbo9b";
   let instructionInput = document.querySelector("#user-instruction");
@@ -27,6 +37,8 @@ function generatePoem(event) {
 
   //create second function to display poem result
   //move typewriter into that and add axios + variables here instead
+
+  //hide the blank box and remove the hidden class on generation of poem
 }
 
 let formElement = document.querySelector("#form");
